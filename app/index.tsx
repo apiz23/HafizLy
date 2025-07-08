@@ -84,17 +84,17 @@ export default function Index() {
     };
 
     return (
-        <View className="flex-1" style={{ backgroundColor: "#000000" }}>
+        <View className="flex-1" style={{ backgroundColor: "#040D12" }}>
             <TouchableOpacity
                 className="absolute bottom-8 right-8 z-10"
                 style={{
-                    backgroundColor: "#892CDC",
+                    backgroundColor: "#93B1A6",
                     width: 64,
                     height: 64,
                     borderRadius: 32,
                     alignItems: "center",
                     justifyContent: "center",
-                    shadowColor: "#52057B",
+                    shadowColor: "#183D3D",
                     shadowOpacity: 0.2,
                     shadowRadius: 10,
                     shadowOffset: { width: 0, height: 4 },
@@ -103,35 +103,35 @@ export default function Index() {
                 onPress={() => setIsDrawerOpen(true)}
                 activeOpacity={0.8}
             >
-                <Feather name="plus" size={28} color="#fff" />
+                <Feather name="plus" size={28} color="#FFFFFF" />
             </TouchableOpacity>
 
             <View className="flex-1 p-6">
                 <View className="my-10">
                     <Text
                         className="text-4xl font-bold mb-4"
-                        style={{ color: "#BC6FF1" }}
+                        style={{ color: "#FFFFFF" }}
                     >
                         HafizLy
                     </Text>
                     <View className="flex-row items-center">
                         <View
                             className="flex-row items-center rounded-full px-3 py-1 mr-2"
-                            style={{ backgroundColor: "#52057B" }}
+                            style={{ backgroundColor: "#183D3D" }}
                         >
                             <MaterialIcons
                                 name="public"
                                 size={16}
-                                color="#BC6FF1"
+                                color="#FFFFFF"
                             />
                             <Text
                                 className="ml-1 text-sm font-medium"
-                                style={{ color: "#BC6FF1" }}
+                                style={{ color: "#FFFFFF" }}
                             >
                                 {publicCount}
                             </Text>
                         </View>
-                        <Text className="text-sm" style={{ color: "#fff" }}>
+                        <Text className="text-sm" style={{ color: "#FFFFFF" }}>
                             {publicCount} {publicCount === 1 ? "link" : "links"}{" "}
                             public
                         </Text>
@@ -143,8 +143,8 @@ export default function Index() {
                     <TextInput
                         style={{
                             backgroundColor: "#18181b",
-                            color: "#fff",
-                            borderColor: "#333",
+                            color: "#FFFFFF",
+                            borderColor: "#183D3D",
                             flex: 1,
                             borderRadius: 12,
                             paddingHorizontal: 16,
@@ -165,10 +165,10 @@ export default function Index() {
                             borderRadius: 12,
                             padding: 10,
                             borderWidth: 1,
-                            borderColor: "#333",
+                            borderColor: "#183D3D",
                         }}
                     >
-                        <Feather name="refresh-cw" size={22} color="#BC6FF1" />
+                        <Feather name="refresh-cw" size={22} color="#FFFFFF" />
                     </TouchableOpacity>
                 </View>
 
@@ -183,7 +183,7 @@ export default function Index() {
                 onClose={() => setIsDrawerOpen(false)}
                 onAdd={addLink}
                 loading={loading}
-                accentColor="#892CDC"
+                accentColor="#93B1A6"
                 darkMode={true}
             />
 

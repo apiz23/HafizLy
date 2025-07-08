@@ -34,7 +34,7 @@ export default function SettingsScreen() {
     return (
         <View
             className="flex-1 items-center justify-center px-8"
-            style={{ backgroundColor: "#000000" }}
+            style={{ backgroundColor: "#040D12" }}
         >
             <Text
                 className="text-2xl font-bold mb-4"
@@ -50,7 +50,7 @@ export default function SettingsScreen() {
             </Text>
             <TextInput
                 style={{
-                    backgroundColor: "#18181b",
+                    backgroundColor: "#183D3D",
                     color: "#fff",
                     borderColor: "#333",
                 }}
@@ -63,7 +63,7 @@ export default function SettingsScreen() {
             />
             <TextInput
                 style={{
-                    backgroundColor: "#18181b",
+                    backgroundColor: "#183D3D",
                     color: "#fff",
                     borderColor: "#333",
                 }}

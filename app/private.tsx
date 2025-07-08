@@ -40,12 +40,12 @@ export default function PrivateScreen() {
         return (
             <View
                 className="flex-1 items-center justify-center"
-                style={{ backgroundColor: "#000000" }}
+                style={{ backgroundColor: "#040D12" }}
             >
-                <Text className="text-lg mb-2" style={{ color: "#fff" }}>
+                <Text className="text-lg mb-2" style={{ color: "#FFFFFF" }}>
                     No password set for private links.
                 </Text>
-                <Text className="mb-4" style={{ color: "#BC6FF1" }}>
+                <Text className="mb-4" style={{ color: "#93B1A6" }}>
                     Please set a password in Settings.
                 </Text>
             </View>
@@ -56,19 +56,19 @@ export default function PrivateScreen() {
         return (
             <View
                 className="flex-1 items-center justify-center px-8"
-                style={{ backgroundColor: "#000000" }}
+                style={{ backgroundColor: "#040D12" }}
             >
                 <Text
                     className="text-2xl font-bold mb-4"
-                    style={{ color: "#BC6FF1" }}
+                    style={{ color: "#93B1A6" }}
                 >
                     Enter Password
                 </Text>
                 <TextInput
                     style={{
-                        backgroundColor: "#18181b",
-                        color: "#fff",
-                        borderColor: "#333",
+                        backgroundColor: "#183D3D",
+                        color: "#FFFFFF",
+                        borderColor: "#183D3D",
                     }}
                     className="w-full rounded-lg p-4 mb-2 border text-lg"
                     placeholder="Password"
@@ -84,7 +84,7 @@ export default function PrivateScreen() {
                     </Text>
                 ) : null}
                 <TouchableOpacity
-                    style={{ backgroundColor: "#892CDC" }}
+                    style={{ backgroundColor: "#93B1A6" }}
                     className="rounded-lg px-6 py-3 mt-2"
                     onPress={handleUnlock}
                 >
@@ -122,12 +122,12 @@ export default function PrivateScreen() {
     };
 
     return (
-        <View className="flex-1" style={{ backgroundColor: "#000000" }}>
+        <View className="flex-1" style={{ backgroundColor: "#040D12" }}>
             <View className="flex-1 p-6">
                 <View className="mt-10">
                     <Text
                         className="text-4xl font-bold mb-4"
-                        style={{ color: "#BC6FF1" }}
+                        style={{ color: "#93B1A6" }}
                     >
                         Private Links
                     </Text>
@@ -136,9 +136,9 @@ export default function PrivateScreen() {
                 <View className="flex-row items-center mb-4">
                     <TextInput
                         style={{
-                            backgroundColor: "#18181b",
-                            color: "#fff",
-                            borderColor: "#333",
+                            backgroundColor: "#183D3D",
+                            color: "#FFFFFF",
+                            borderColor: "#183D3D",
                             flex: 1,
                             borderRadius: 12,
                             paddingHorizontal: 16,
@@ -155,14 +155,14 @@ export default function PrivateScreen() {
                     <TouchableOpacity
                         onPress={fetchLinks}
                         style={{
-                            backgroundColor: "#18181b",
+                            backgroundColor: "#183D3D",
                             borderRadius: 12,
                             padding: 10,
                             borderWidth: 1,
-                            borderColor: "#333",
+                            borderColor: "#183D3D",
                         }}
                     >
-                        <Feather name="refresh-cw" size={22} color="#BC6FF1" />
+                        <Feather name="refresh-cw" size={22} color="#93B1A6" />
                     </TouchableOpacity>
                 </View>
                 <LinkList

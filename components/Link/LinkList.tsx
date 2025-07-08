@@ -14,7 +14,7 @@ export default function LinkList({ links, onViewDetails }: LinkListProps) {
         return (
             <View className="flex-1 justify-center items-center">
                 <View className="bg-indigo-50 p-6 rounded-full mb-4">
-                    <Feather name="bookmark" size={36} color="#6366f1" />
+                    <Feather name="bookmark" size={36} color="#93B1A6" />
                 </View>
                 <Text className="text-gray-700 text-xl font-medium mb-1">
                     No links found

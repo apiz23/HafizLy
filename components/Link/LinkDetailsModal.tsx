@@ -72,13 +72,13 @@ export default function LinkDetailsModal({
         >
             <View className="flex-1 justify-end">
                 <View
-                    style={{ backgroundColor: "#18181b" }}
+                    style={{ backgroundColor: "#040D12" }}
                     className="rounded-t-3xl p-6 min-h-[30%]"
                 >
                     <View className="flex-row justify-between items-center mb-4">
                         <Text
                             className="text-2xl font-bold"
-                            style={{ color: "#fff" }}
+                            style={{ color: "#FFFFFF" }}
                         >
                             {editMode ? "Edit Link" : "Link Details"}
                         </Text>
@@ -88,15 +88,15 @@ export default function LinkDetailsModal({
                     </View>
 
                     {/* Name */}
-                    <Text className="text-xs mb-1" style={{ color: "#fff" }}>
+                    <Text className="text-xs mb-1" style={{ color: "#FFFFFF" }}>
                         Title
                     </Text>
                     {editMode ? (
                         <TextInput
                             style={{
-                                backgroundColor: "#000",
-                                color: "#fff",
-                                borderColor: "#333",
+                                backgroundColor: "#183D3D",
+                                color: "#FFFFFF",
+                                borderColor: "#183D3D",
                             }}
                             className="rounded-lg p-3 mb-3 border text-lg"
                             value={name}
@@ -105,22 +105,22 @@ export default function LinkDetailsModal({
                     ) : (
                         <Text
                             className="text-lg mb-3"
-                            style={{ color: "#fff" }}
+                            style={{ color: "#FFFFFF" }}
                         >
                             {link.name}
                         </Text>
                     )}
 
                     {/* Description */}
-                    <Text className="text-xs mb-1" style={{ color: "#fff" }}>
+                    <Text className="text-xs mb-1" style={{ color: "#FFFFFF" }}>
                         Description
                     </Text>
                     {editMode ? (
                         <TextInput
                             style={{
-                                backgroundColor: "#000",
-                                color: "#fff",
-                                borderColor: "#333",
+                                backgroundColor: "#183D3D",
+                                color: "#FFFFFF",
+                                borderColor: "#183D3D",
                             }}
                             className="rounded-lg p-3 mb-3 border text-base"
                             value={description}
@@ -130,22 +130,22 @@ export default function LinkDetailsModal({
                     ) : (
                         <Text
                             className="text-base mb-3"
-                            style={{ color: "#fff" }}
+                            style={{ color: "#FFFFFF" }}
                         >
                             {link.description || "-"}
                         </Text>
                     )}
 
                     {/* URL */}
-                    <Text className="text-xs mb-1" style={{ color: "#fff" }}>
+                    <Text className="text-xs mb-1" style={{ color: "#FFFFFF" }}>
                         URL
                     </Text>
                     {editMode ? (
                         <TextInput
                             style={{
-                                backgroundColor: "#000",
-                                color: "#fff",
-                                borderColor: "#333",
+                                backgroundColor: "#183D3D",
+                                color: "#FFFFFF",
+                                borderColor: "#183D3D",
                             }}
                             className="rounded-lg p-3 mb-3 border text-base"
                             value={url}
@@ -180,7 +180,7 @@ export default function LinkDetailsModal({
                                 size={20}
                                 color={isPublic ? "#BC6FF1" : "#892CDC"}
                             />
-                            <Text className="ml-2" style={{ color: "#fff" }}>
+                            <Text className="ml-2" style={{ color: "#FFFFFF" }}>
                                 {isPublic ? "Public" : "Private"}
                             </Text>
                         </View>
@@ -232,7 +232,7 @@ export default function LinkDetailsModal({
                                 >
                                     <Text
                                         style={{
-                                            color: "#fff",
+                                            color: "#FFFFFF",
                                             fontWeight: "bold",
                                             fontSize: 16,
                                         }}
@@ -291,7 +291,7 @@ export default function LinkDetailsModal({
                                 >
                                     <Text
                                         style={{
-                                            color: "#fff",
+                                            color: "#FFFFFF",
                                             fontWeight: "bold",
                                             fontSize: 16,
                                         }}

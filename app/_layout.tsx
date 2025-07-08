@@ -27,16 +27,16 @@ export default function RootLayout() {
                     }
                     return null;
                 },
-                tabBarActiveTintColor: "#BC6FF1",
-                tabBarInactiveTintColor: "#52057B",
+                tabBarActiveTintColor: "#93B1A6",
+                tabBarInactiveTintColor: "#5C8374",
                 tabBarStyle: {
-                    backgroundColor: "#000000",
-                    borderColor: "#52057B",
+                    backgroundColor: "#040D12",
+                    borderColor: "#183D3D",
                 },
                 tabBarLabelStyle: {
                     fontWeight: "bold",
                     fontSize: 13,
-                    color: "#fff",
+                    color: "#FFFFFF",
                 },
             })}
         />
