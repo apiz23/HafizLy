@@ -19,7 +19,7 @@ export default function LinkItem({ link, onViewDetails }: LinkItemProps) {
                     {link.name}
                 </Text>
 
-                <View className="flex-row justify-end mt-2">
+                <View className="flex-row justify-end">
                     <TouchableOpacity
                         onPress={() => onViewDetails(link)}
                         activeOpacity={0.8}

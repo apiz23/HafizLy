@@ -30,7 +30,7 @@ export default function AddLinkModal({
     onClose,
     onAdd,
     loading,
-    accentColor = "#892CDC",
+    accentColor = "#93B1A6",
     darkMode = false,
 }: AddLinkModalProps) {
     const [name, setName] = useState("");
@@ -65,9 +65,9 @@ export default function AddLinkModal({
             <Pressable className="flex-1" onPress={onClose} />
             <View
                 style={{ backgroundColor: modalBg }}
-                className="p-6 rounded-t-3xl shadow-lg"
+                className="p-6 rounded-t-3xl shadow-lg border-t-2 border-x-2 border-gray-300"
             >
-                <View className="flex-row justify-between items-center mb-6">
+                <View className="flex-row justify-between items-center mb-4">
                     <Text
                         className="text-2xl font-bold"
                         style={{ color: accentColor }}
