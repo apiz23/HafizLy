@@ -10,6 +10,7 @@ import {
     TouchableOpacity,
     View,
 } from "react-native";
+import QRCode from "react-native-qrcode-svg";
 import type { Link } from "../../hooks/useLinks";
 
 interface LinkDetailsModalProps {
@@ -38,6 +39,7 @@ export default function LinkDetailsModal({
     onOpen,
 }: LinkDetailsModalProps) {
     const [editMode, setEditMode] = useState(false);
+    const [showQRCode, setShowQRCode] = useState(false); // State for QR Code visibility
     const [name, setName] = useState(link?.name || "");
     const [description, setDescription] = useState(link?.description || "");
     const [url, setUrl] = useState(link?.link || "");
@@ -50,6 +52,7 @@ export default function LinkDetailsModal({
             setUrl(link.link);
             setIsPublic(link.category === "Public");
             setEditMode(false);
+            setShowQRCode(false); // Reset QR Code visibility when link changes
         }
     }, [link, visible]);
 
@@ -68,19 +71,14 @@ export default function LinkDetailsModal({
         <Modal
             visible={visible}
             animationType="slide"
-            transparent={true}
+            transparent
             onRequestClose={onClose}
         >
             <Pressable className="flex-1" onPress={onClose} />
-            <View
-                style={{ backgroundColor: "#040D12" }}
-                className="rounded-t-3xl p-6 min-h-[30%] border-t-2 border-x-2 border-gray-300"
-            >
+            <View className="bg-[#040D12] rounded-t-3xl p-6 min-h-[30%] border-t-2 border-x-2 border-gray-300">
+                {/* Header */}
                 <View className="flex-row justify-between items-center mb-4">
-                    <Text
-                        className="text-2xl font-bold"
-                        style={{ color: "#FFFFFF" }}
-                    >
+                    <Text className="text-2xl font-bold text-white">
                         {editMode ? "Edit Link" : "Link Details"}
                     </Text>
                     <TouchableOpacity onPress={onClose}>
@@ -88,64 +86,63 @@ export default function LinkDetailsModal({
                     </TouchableOpacity>
                 </View>
 
+                {/* QR Code */}
+                {showQRCode && !editMode && (
+                    <View className="mx-auto mb-4">
+                        <QRCode
+                            value={link.link}
+                            size={200}
+                            logoBackgroundColor="transparent"
+                        />
+                    </View>
+                )}
+
+                {/* QR Code Toggle Button */}
+                {!editMode && (
+                    <View className="mb-4">
+                        <TouchableOpacity
+                            onPress={() => setShowQRCode(!showQRCode)} // Toggle QR Code visibility
+                            className="flex-row items-center justify-center bg-gray-700 rounded-lg p-2"
+                        >
+                            <Text className="text-base text-white">
+                                {showQRCode ? "Hide QR Code" : "Show QR Code"}
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                )}
+
                 {/* Name */}
-                <Text className="text-xs mb-1" style={{ color: "#FFFFFF" }}>
-                    Title
-                </Text>
+                <Text className="text-xs text-white mb-1">Title</Text>
                 {editMode ? (
                     <TextInput
-                        style={{
-                            backgroundColor: "#183D3D",
-                            color: "#FFFFFF",
-                            borderColor: "#183D3D",
-                        }}
-                        className="rounded-lg p-3 mb-3 border text-lg"
+                        className="rounded-lg bg-[#183D3D] text-lg text-white border border-[#183D3D] p-3 mb-3"
                         value={name}
                         onChangeText={setName}
                     />
                 ) : (
-                    <Text className="text-lg mb-3" style={{ color: "#FFFFFF" }}>
-                        {link.name}
-                    </Text>
+                    <Text className="text-lg text-white mb-3">{link.name}</Text>
                 )}
 
                 {/* Description */}
-                <Text className="text-xs mb-1" style={{ color: "#FFFFFF" }}>
-                    Description
-                </Text>
+                <Text className="text-xs text-white mb-1">Description</Text>
                 {editMode ? (
                     <TextInput
-                        style={{
-                            backgroundColor: "#183D3D",
-                            color: "#FFFFFF",
-                            borderColor: "#183D3D",
-                        }}
-                        className="rounded-lg p-3 mb-3 border text-base"
+                        className="rounded-lg bg-[#183D3D] text-base text-white border border-[#183D3D] p-3 mb-3"
                         value={description}
                         onChangeText={setDescription}
                         multiline
                     />
                 ) : (
-                    <Text
-                        className="text-base mb-3"
-                        style={{ color: "#FFFFFF" }}
-                    >
+                    <Text className="text-base text-white mb-3">
                         {link.description || "-"}
                     </Text>
                 )}
 
                 {/* URL */}
-                <Text className="text-xs mb-1" style={{ color: "#FFFFFF" }}>
-                    URL
-                </Text>
+                <Text className="text-xs text-white mb-1">URL</Text>
                 {editMode ? (
                     <TextInput
-                        style={{
-                            backgroundColor: "#183D3D",
-                            color: "#FFFFFF",
-                            borderColor: "#183D3D",
-                        }}
-                        className="rounded-lg p-3 mb-3 border text-base"
+                        className="rounded-lg bg-[#183D3D] text-base text-white border border-[#183D3D] p-3 mb-3"
                         value={url}
                         onChangeText={setUrl}
                         autoCapitalize="none"
@@ -156,8 +153,7 @@ export default function LinkDetailsModal({
                         className="flex-row items-center mb-3"
                     >
                         <Text
-                            className="text-base flex-1"
-                            style={{ color: "#93B1A6" }}
+                            className="text-base text-[#93B1A6] flex-1"
                             numberOfLines={1}
                         >
                             {link.link}
@@ -178,7 +174,7 @@ export default function LinkDetailsModal({
                             size={20}
                             color={isPublic ? "#93B1A6" : "#93B1A6"}
                         />
-                        <Text className="ml-2" style={{ color: "#FFFFFF" }}>
+                        <Text className="ml-2 text-white">
                             {isPublic ? "Public" : "Private"}
                         </Text>
                     </View>
@@ -186,10 +182,7 @@ export default function LinkDetailsModal({
                         <Switch
                             value={isPublic}
                             onValueChange={setIsPublic}
-                            trackColor={{
-                                false: "#5C8374",
-                                true: "#93B1A6",
-                            }}
+                            trackColor={{ false: "#5C8374", true: "#93B1A6" }}
                             thumbColor="#E0E0E0"
                         />
                     )}
@@ -201,40 +194,17 @@ export default function LinkDetailsModal({
                         <>
                             <TouchableOpacity
                                 onPress={handleSave}
-                                style={{
-                                    backgroundColor: "#93B1A6",
-                                    borderRadius: 8,
-                                    paddingVertical: 10,
-                                    paddingHorizontal: 24,
-                                    marginRight: 8,
-                                }}
+                                className="bg-[#93B1A6] rounded-lg py-2 px-4 mr-2"
                             >
-                                <Text
-                                    style={{
-                                        color: "#1A1A1A",
-                                        fontWeight: "bold",
-                                        fontSize: 16,
-                                    }}
-                                >
+                                <Text className="text-[#1A1A1A] font-bold text-base">
                                     Save
                                 </Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 onPress={() => setEditMode(false)}
-                                style={{
-                                    backgroundColor: "#183D3D",
-                                    borderRadius: 8,
-                                    paddingVertical: 10,
-                                    paddingHorizontal: 24,
-                                }}
+                                className="bg-[#183D3D] rounded-lg py-2 px-4"
                             >
-                                <Text
-                                    style={{
-                                        color: "#FFFFFF",
-                                        fontWeight: "bold",
-                                        fontSize: 16,
-                                    }}
-                                >
+                                <Text className="text-white font-bold text-base">
                                     Cancel
                                 </Text>
                             </TouchableOpacity>
@@ -243,34 +213,19 @@ export default function LinkDetailsModal({
                         <>
                             <TouchableOpacity
                                 onPress={() => setEditMode(true)}
-                                style={{
-                                    backgroundColor: "#93B1A6",
-                                    borderRadius: 8,
-                                    paddingVertical: 10,
-                                    paddingHorizontal: 24,
-                                    marginRight: 8,
-                                }}
+                                className="bg-[#93B1A6] rounded-lg py-2 px-4 mr-2"
                             >
-                                <Text
-                                    style={{
-                                        color: "#1A1A1A",
-                                        fontWeight: "bold",
-                                        fontSize: 16,
-                                    }}
-                                >
+                                <Text className="text-[#1A1A1A] font-bold text-base">
                                     Edit
                                 </Text>
                             </TouchableOpacity>
                             <TouchableOpacity
-                                onPress={() => {
+                                onPress={() =>
                                     Alert.alert(
                                         "Delete Link",
                                         "Are you sure you want to delete this link?",
                                         [
-                                            {
-                                                text: "Cancel",
-                                                style: "cancel",
-                                            },
+                                            { text: "Cancel", style: "cancel" },
                                             {
                                                 text: "Delete",
                                                 style: "destructive",
@@ -278,22 +233,11 @@ export default function LinkDetailsModal({
                                                     onDelete(link.id),
                                             },
                                         ]
-                                    );
-                                }}
-                                style={{
-                                    backgroundColor: "#5C8374",
-                                    borderRadius: 8,
-                                    paddingVertical: 10,
-                                    paddingHorizontal: 24,
-                                }}
+                                    )
+                                }
+                                className="bg-[#5C8374] rounded-lg py-2 px-4"
                             >
-                                <Text
-                                    style={{
-                                        color: "#FFFFFF",
-                                        fontWeight: "bold",
-                                        fontSize: 16,
-                                    }}
-                                >
+                                <Text className="text-white font-bold text-base">
                                     Delete
                                 </Text>
                             </TouchableOpacity>

@@ -42,10 +42,10 @@ export default function PrivateScreen() {
                 className="flex-1 items-center justify-center"
                 style={{ backgroundColor: "#040D12" }}
             >
-                <Text className="text-lg mb-2" style={{ color: "#FFFFFF" }}>
+                <Text className="text-lg mb-2 text-white">
                     No password set for private links.
                 </Text>
-                <Text className="mb-4" style={{ color: "#93B1A6" }}>
+                <Text className="mb-4 text-[#93B1A6]">
                     Please set a password in Settings.
                 </Text>
             </View>

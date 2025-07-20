@@ -11,7 +11,7 @@ interface LinkItemProps {
 export default function LinkItem({ link, onViewDetails }: LinkItemProps) {
     return (
         <CustomCard>
-            <View className="w-full">
+            <View className="w-full gap-4">
                 <Text
                     className="font-medium text-white text-lg w-full"
                     numberOfLines={1}

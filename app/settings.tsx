@@ -36,10 +36,7 @@ export default function SettingsScreen() {
             className="flex-1 items-center justify-center px-8"
             style={{ backgroundColor: "#040D12" }}
         >
-            <Text
-                className="text-2xl font-bold mb-4"
-                style={{ color: "#BC6FF1" }}
-            >
+            <Text className="text-2xl font-bold mb-4 text-[#93B1A6]">
                 Settings
             </Text>
             <Text
@@ -87,8 +84,7 @@ export default function SettingsScreen() {
                 </Text>
             ) : null}
             <TouchableOpacity
-                style={{ backgroundColor: "#892CDC" }}
-                className="rounded-lg px-6 py-3 mt-2"
+                className="rounded-lg px-6 py-3 mt-2 bg-[#93B1A6]"
                 onPress={handleSetPassword}
             >
                 <Text className="text-white font-semibold text-lg">
