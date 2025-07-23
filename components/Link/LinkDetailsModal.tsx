@@ -74,7 +74,7 @@ export default function LinkDetailsModal({
             transparent
             onRequestClose={onClose}
         >
-            <Pressable className="flex-1" onPress={onClose} />
+            <Pressable onPress={onClose} className="flex-1" />
             <View className="bg-[#040D12] rounded-t-3xl p-6 min-h-[30%] border-t-2 border-x-2 border-gray-300">
                 {/* Header */}
                 <View className="flex-row justify-between items-center mb-4">

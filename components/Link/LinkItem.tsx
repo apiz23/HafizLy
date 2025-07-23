@@ -10,27 +10,20 @@ interface LinkItemProps {
 
 export default function LinkItem({ link, onViewDetails }: LinkItemProps) {
     return (
-        <CustomCard>
-            <View className="w-full gap-4">
-                <Text
-                    className="font-medium text-white text-lg w-full"
-                    numberOfLines={1}
-                >
-                    {link.name}
-                </Text>
-
-                <View className="flex-row justify-end">
-                    <TouchableOpacity
-                        onPress={() => onViewDetails(link)}
-                        activeOpacity={0.8}
-                        className="bg-zinc-200 rounded-lg py-1.5 px-3"
+        <TouchableOpacity
+            onPress={() => onViewDetails(link)}
+            activeOpacity={0.9}
+        >
+            <CustomCard>
+                <View className="w-full gap-4">
+                    <Text
+                        className="font-medium text-center text-white text-lg w-full"
+                        numberOfLines={1}
                     >
-                        <Text className="text-black font-bold text-base">
-                            View Details
-                        </Text>
-                    </TouchableOpacity>
+                        {link.name}
+                    </Text>
                 </View>
-            </View>
-        </CustomCard>
+            </CustomCard>
+        </TouchableOpacity>
     );
 }
