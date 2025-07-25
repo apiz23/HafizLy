@@ -23,11 +23,9 @@ export default function Index() {
     const { links, loading, addLink, togglePrivacy, deleteLink, fetchLinks } =
         useLinks();
 
-    // Only show public links
     const publicLinks = links.filter((item) => item.category === "Public");
     const publicCount = publicLinks.length;
 
-    // Filter by search
     const filteredLinks = publicLinks.filter(
         (item) =>
             item.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -107,10 +105,9 @@ export default function Index() {
             </TouchableOpacity>
 
             <View className="flex-1 p-6">
-                <View className="my-10">
+                <View className="mt-10 mb-4">
                     <Text
-                        className="text-4xl font-bold mb-4"
-                        style={{ color: "#FFFFFF" }}
+                        className="text-4xl font-bold mb-4 text-white"
                     >
                         HafizLy
                     </Text>
@@ -138,7 +135,6 @@ export default function Index() {
                     </View>
                 </View>
 
-                {/* Search bar and refresh */}
                 <View className="flex-row items-center mb-4">
                     <TextInput
                         style={{

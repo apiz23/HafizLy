@@ -39,7 +39,7 @@ export default function LinkDetailsModal({
     onOpen,
 }: LinkDetailsModalProps) {
     const [editMode, setEditMode] = useState(false);
-    const [showQRCode, setShowQRCode] = useState(false); // State for QR Code visibility
+    const [showQRCode, setShowQRCode] = useState(false);
     const [name, setName] = useState(link?.name || "");
     const [description, setDescription] = useState(link?.description || "");
     const [url, setUrl] = useState(link?.link || "");
@@ -52,7 +52,7 @@ export default function LinkDetailsModal({
             setUrl(link.link);
             setIsPublic(link.category === "Public");
             setEditMode(false);
-            setShowQRCode(false); // Reset QR Code visibility when link changes
+            setShowQRCode(false);
         }
     }, [link, visible]);
 
